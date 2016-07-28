@@ -40,8 +40,8 @@ $def[1] = '';
 
 $count = 0;
 
-foreach ($DS as $i) {
-    $def[1] .= rrd::def("var$i", $rrdfile, $DS[$i], 'AVERAGE');
+foreach ($DS as $i => $j) {
+    $def[1] .= rrd::def("var$i", $RRDFILE[$i], $DS[$i], 'AVERAGE');
 
     if ($i == '1') {
         $def[1] .= rrd::area ("var$i", $colors[$count], rrd::cut(ucfirst($NAME[$i]), 15));
